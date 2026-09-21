@@ -281,6 +281,10 @@ on:
         required: false
         default: true
         type: boolean
+      fnnas_size:
+        description: "Set boot/rootfs size(MiB)"
+        required: false
+        default: "512/6144"
       rootfs_expand:
         description: "Set rootfs expansion size(GiB)"
         required: false
@@ -476,6 +480,7 @@ jobs:
           kernel_repo: ${{ inputs.kernel_repo }}
           rootfs_expand: ${{ inputs.rootfs_expand }}
           builder_name: ${{ inputs.builder_name }}
+          fnnas_size: ${{ inputs.fnnas_size }}
 
       - name: Upload packaged FnNAS to Release
         uses: ophub/upload-to-releases@main
