@@ -284,7 +284,7 @@ on:
       fnnas_size:
         description: "Set boot/rootfs size(MiB)"
         required: false
-        default: "512/6144"
+        default: "512/4096"
       rootfs_expand:
         description: "Set rootfs expansion size(GiB)"
         required: false

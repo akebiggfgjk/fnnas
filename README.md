@@ -180,14 +180,14 @@ sudo apt-get install -y $(cat make-fnnas/script/ubuntu2404-make-fnnas-depends)
 | -r        | KernelRepo | Specifies the `<owner>/<repo>` of the github.com kernel repository. Default: `ophub/fnnas` |
 | -k        | Kernel     | Specifies the [kernel](https://github.com/ophub/fnnas/releases/tag/kernel_fnnas) version, e.g., `-k 6.18.18`. Multiple kernels are joined with `_`, e.g., `-k 6.18.6_6.18.18`. |
 | -a        | AutoKernel | Sets whether to automatically adopt the latest kernel version within the same series. When set to `true`, the kernel library is checked for a newer version in the same series as the kernel specified in `-k` (e.g., 6.18.18), and automatically switches to the latest version if available. When set to `false`, the specified kernel version is compiled. Default: `true` |
-| -s        | Size       | Sets the system image partition size (Unit: MiB). When setting only the `ROOTFS` partition size, specify a single value, e.g., `-s 6144`. When setting both `BOOTFS` and `ROOTFS` partition sizes, join the two values with /, e.g., `-s 512/6144`. Default: `512/6144` |
+| -s        | Size       | Sets the system image partition size (Unit: MiB). When setting only the `ROOTFS` partition size, specify a single value, e.g., `-s 4096`. When setting both `BOOTFS` and `ROOTFS` partition sizes, join the two values with /, e.g., `-s 512/4096`. Default: `512/4096` |
 | -e        | RootfsExpand | Sets the automatic expansion size (Unit: GiB) of the system root partition. Default: `16` |
 | -n        | BuilderName | Sets the FnNAS system builder signature. Do not include spaces in the signature. Default: `None` |
 
 - `sudo ./renas` : Use default configuration to package for all TV box models.
 - `sudo ./renas -b s905x3 -k 6.18.18` : Recommended. Package with the specified kernel using default configuration.
 - `sudo ./renas -b s905x3 -k 6.18.y` : Use default configuration, automatically using the latest version of the 6.18.y series kernel.
-- `sudo ./renas -b s905x3 -k 6.18.18 -s 6144` : Use default configuration, specify one kernel and one model for packaging, with the system partition size set to `6144` MiB.
+- `sudo ./renas -b s905x3 -k 6.18.18 -s 4096` : Use default configuration, specify one kernel and one model for packaging, with the system partition size set to `4096` MiB.
 - `sudo ./renas -b s905x3_s905d` : Use default configuration to package all kernels for multiple TV box models. Use `_` to join multiple models.
 - `sudo ./renas -b s905x3 -e 32` : Use default configuration to package for the `s905x3` model, with the rootfs automatic expansion size set to `32` GiB.
 
@@ -219,7 +219,7 @@ The parameters correspond to the local packaging commands described above.
 | kernel_repo     | ophub/fnnas   | Specifies the `<owner>/<repo>` of the github.com kernel repository. Refer to `-r` for details |
 | fnnas_kernel    | 6.18.y        | Sets the kernel [version](https://github.com/ophub/fnnas/releases/tag/kernel_fnnas). Refer to `-k` for details |
 | auto_kernel     | true          | Sets whether to automatically adopt the latest kernel within the same series. Refer to `-a` for details |
-| fnnas_size      | 512/6144      | Sets the `BOOTFS` and `ROOTFS` partition sizes. Refer to `-s` for details |
+| fnnas_size      | 512/4096      | Sets the `BOOTFS` and `ROOTFS` partition sizes. Refer to `-s` for details |
 | rootfs_expand   | 16            | Sets the automatic expansion size (Unit: GiB) of the system root partition. Refer to `-e` for details |
 | builder_name    | None          | Sets the FnNAS system builder signature. Refer to `-n` for details |
 
